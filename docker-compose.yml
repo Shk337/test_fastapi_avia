@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+    test_fastapi:
+        image: test_fastapi:latest
+        build: .
+        environment:
+            - EMAIL_LOGIN=shoockerz@gmail.com
+            - EMAIL_PASSWORD=zpuvzykfjhqxdsqc    #оставляю пароль для приложений (для тестов)
+            - TZ=Asia/Almaty
+        ports:
+            - 3042:3042 #внешний_порт:внутренний порт
+        networks:
+            - test_fastapi
+
+
+networks:
+  test_fastapi:
+    name: test_fastapi
